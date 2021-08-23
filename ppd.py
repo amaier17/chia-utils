@@ -26,7 +26,7 @@ if __name__ == "__main__":
     count = 0
     for plot in args.plot.rglob("*.plot"):
         plot_search = re.compile(r"plot-k32-(\d{4})-(\d{2})-(\d{2}).*")
-        res = plot_search.match(str(plot).split("/")[4])
+        res = plot_search.match(str(plot).split("/")[-1])
         year = int(res.group(1))
         month = int(res.group(2))
         day = int(res.group(3))
