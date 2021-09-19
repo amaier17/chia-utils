@@ -17,7 +17,7 @@ def update_gsheet(xch):
     sheet = client.open("Eid-Chia Financials")
     worksheet = sheet.get_worksheet_by_id(234887479)
     worksheet.update("L1", xch)
-    worksheet.update("A15", datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    worksheet.update("L2", datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
 async def get_balance():
     try:
