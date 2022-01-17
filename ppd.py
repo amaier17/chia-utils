@@ -10,7 +10,8 @@ def parse_args():
     parser = argparse.ArgumentParser(description="This script will check how many plots were created with a specific date timestamp")
     parser.add_argument("-p", "--plot", help="Path to the plots directory to search (we will look recursively)",
                         default=Path("/mnt/plots/"), type=Path)
-    parser.add_argument("-d", "--date", type=lambda s: datetime.datetime.strptime(s, '%Y-%m-%d'), default=datetime.datetime.today())
+    parser.add_argument("-d", "--date", type=lambda s: datetime.datetime.strptime(s, '%Y-%m-%d'), default=datetime.datetime.today(),
+                        help=f"The date to use when searching (format YYYY-MM-DD i.e. 2022-01-17)")
 
     try:
         args = parser.parse_args()
