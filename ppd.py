@@ -25,12 +25,12 @@ if __name__ == "__main__":
     print(f"Checking for all plots with the date {args.date.strftime('%Y-%m-%d')}")
     count = 0
     for plot in args.plot.rglob("*.plot"):
-        plot_search = re.compile(r"plot-k32-(\d{4})-(\d{2})-(\d{2}).*")
+        plot_search = re.compile(r"plot-k\d{2}-(\d{4})-(\d{2})-(\d{2}).*")
         res = plot_search.match(str(plot).split("/")[-1])
         year = int(res.group(1))
         month = int(res.group(2))
         day = int(res.group(3))
         if year == args.date.year and month == args.date.month and day == args.date.day:
             count=count+1
-        
+
     print(f"I found a total of {count} plots on {args.date.strftime('%Y-%m-%d')}")
